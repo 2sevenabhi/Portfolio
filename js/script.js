@@ -39,18 +39,18 @@ menuIcon.classList.remove('bx-x');
 };
 
 
-
-// emailjavascript
-const contactForm = document.getElementById('contact-form'),
+ //emailjavascript
+const contactForm = document.getElementById('contact'),
 contactName = document.getElementById('contact-name'),
 contactEmail = document.getElementById('contact-email'),
 contactProject = document.getElementById('contact-project'),
+contactSubject = document.getElementById('contact-subject'),
 contactMessage = document.getElementById('contact-message')
 
 const sendEmail = (e) =>{
 e.preventDefault()
 // check if the feild has value
-if(contactName.value ===''|| contactEmail.value === ''|| contactProject.value === ''){
+if(contactName.value ===''|| contactEmail.value === ''|| contactProject.value === ''  || contactSubject.value === '' ){
 // add and remove color
 contactMessage.classList.remove('color-blue')
 contactMessage.classList.add('color-red')
@@ -58,7 +58,7 @@ contactMessage.classList.add('color-red')
 // show message
 contactMessage.textContent = 'Write all the inputs feilds 📩'
 }else{
-        emailjs.sendForm('service_stvzljc','template_blbhouj','#contact-form', 'uI1TQMS7LUa0LdQnr')
+        emailjs.sendForm('service_stvzljc','template_blbhouj','#contact', 'uI1TQMS7LUa0LdQnr')
     .then(() => {
 contactMessage.classList.add('color-blue')
 contactMessage.textContent = 'Message sent ✅'
@@ -79,12 +79,13 @@ setTimeout(() => {
 contactForm.addEventListener('submit', sendEmail)
 
 // dark light mode
+
 let darkModeIcon = document.querySelector('#darkMode-icon');
 
 darkModeIcon.onclick = () => {
     darkModeIcon.classList.toggle('bx-sun');
     document.body.classList.toggle('dark-mode');
-};
+}
 
 // scroll reveal
 ScrollReveal({ 
